@@ -28,11 +28,23 @@ These days I build with **vibe coding**, working together with AI models. Knowin
 
 </details>
 
-### 🧰 Tech I use
+### 🧰 Core skills
+
+What I learned at GoIT and work with on my own.
 
 <p align="center">
-  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=html,css,sass,js,react,astro,git&theme=dark" alt="HTML, CSS, Sass, JavaScript, React, Astro, Git"></a>
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=html,css,sass,js,react,git,github&theme=dark" alt="HTML, CSS, Sass, JavaScript, React, Git, GitHub"></a>
 </p>
+
+<!-- TECH:START -->
+### 🤖 Built with AI
+
+Tech from my projects that I built together with AI. I know the basics and learn the rest as I go.
+
+<p align="center">
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=astro&theme=dark&perline=10" alt="Tech: astro"></a>
+</p>
+<!-- TECH:END -->
 
 ### 📊 Stats
 

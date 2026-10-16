@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ["scripts/**", ".github/workflows/**"]
+    paths: ["scripts/**", "tech.json", ".github/workflows/**"]
 
 permissions:
   contents: write
@@ -23,12 +23,13 @@ jobs:
         env:
           GH_USER: ${{ github.repository_owner }}
           STATS_TOKEN: ${{ secrets.STATS_TOKEN }}
-      - name: Commit if numbers changed
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit if stats or stack changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/stats.svg
-          git diff --cached --quiet -I 'updated 20' || { git commit -m "chore: update stats" && git push; }
+          git add assets/stats.svg README.md
+          git diff --cached --quiet -I 'updated 20' || { git commit -m "chore: update stats and stack" && git push; }
 
   snake:
     runs-on: ubuntu-latest

@@ -1,0 +1,13 @@
+{
+  "aiSince": "2026-10-14",
+  "core": [
+    "html",
+    "css",
+    "sass",
+    "js",
+    "react",
+    "git",
+    "github"
+  ],
+  "hide": []
+}

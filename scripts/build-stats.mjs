@@ -1,4 +1,5 @@
-// Builds assets/stats.svg from GitHub data. Runs daily in GitHub Actions.
+// Builds assets/stats.svg and the "Tech I use" block of README.md from GitHub
+// data. Runs daily in GitHub Actions, so new repos and new tech show up by themselves.
 //
 // Privacy: private repositories only ever contribute aggregate numbers
 // (repo count, language bytes, commit and contribution counts). Their names, descriptions
@@ -6,18 +7,26 @@
 //
 // Env:
 //   GH_USER      GitHub login (default: isteppanenko)
-//   STATS_TOKEN  optional fine-grained token, read-only "Metadata" on all repos.
+//   STATS_TOKEN  optional fine-grained token on all repos: "Metadata" read-only gives
+//                private counts and languages; adding "Contents" read-only also lets
+//                it spot frameworks (package.json) in private repos.
 //                Without it the card is built from public data only.
-import { writeFileSync, mkdirSync } from 'node:fs';
+//   GITHUB_TOKEN used for public data when STATS_TOKEN is missing (higher rate limit).
+//
+// tech.json (skillicons.dev ids): "core" = skills I know myself, listed in README by hand;
+// anything else found in repos created since "aiSince" goes to the auto "Built with AI" block;
+// "hide" = never show.
+import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'node:fs';
 
 const USER = process.env.GH_USER || 'isteppanenko';
 const TOKEN = process.env.STATS_TOKEN || '';
+const AUTH = TOKEN || process.env.GITHUB_TOKEN || '';
 const RECENT_DAYS = 120;
 const API = 'https://api.github.com';
 const headers = {
   Accept: 'application/vnd.github+json',
   'User-Agent': `${USER}-profile-stats`,
-  ...(TOKEN && { Authorization: `Bearer ${TOKEN}` }),
+  ...(AUTH && { Authorization: `Bearer ${AUTH}` }),
 };
 
 async function get(path) {
@@ -53,8 +62,44 @@ async function commitsIn(repo) {
   return 0;
 }
 
+// GitHub language -> skillicons.dev id
+const LANG_ICONS = {
+  JavaScript: 'js', TypeScript: 'ts', HTML: 'html', CSS: 'css', SCSS: 'sass', Sass: 'sass', Less: 'less',
+  Astro: 'astro', Vue: 'vue', Svelte: 'svelte', Python: 'py', PHP: 'php', Java: 'java', Kotlin: 'kotlin',
+  'C#': 'cs', C: 'c', 'C++': 'cpp', Go: 'go', Rust: 'rust', Ruby: 'ruby', Swift: 'swift', Dart: 'dart',
+  Lua: 'lua', Shell: 'bash', PowerShell: 'powershell', Dockerfile: 'docker', Solidity: 'solidity',
+};
+// npm package -> [skillicons.dev id, display name]
+const PKG_ICONS = {
+  react: ['react', 'React'], 'react-native': ['react', 'React Native'], next: ['nextjs', 'Next.js'],
+  vue: ['vue', 'Vue'], nuxt: ['nuxtjs', 'Nuxt'], svelte: ['svelte', 'Svelte'], '@sveltejs/kit': ['svelte', 'SvelteKit'],
+  astro: ['astro', 'Astro'], '@angular/core': ['angular', 'Angular'], gatsby: ['gatsby', 'Gatsby'],
+  tailwindcss: ['tailwind', 'Tailwind'], sass: ['sass', 'Sass'], bootstrap: ['bootstrap', 'Bootstrap'],
+  typescript: ['ts', 'TypeScript'], vite: ['vite', 'Vite'], webpack: ['webpack', 'webpack'],
+  express: ['express', 'Express'], '@nestjs/core': ['nestjs', 'NestJS'], redux: ['redux', 'Redux'],
+  '@reduxjs/toolkit': ['redux', 'Redux'], jest: ['jest', 'Jest'], vitest: ['vitest', 'Vitest'],
+  three: ['threejs', 'Three.js'], electron: ['electron', 'Electron'], prisma: ['prisma', 'Prisma'],
+  mongoose: ['mongodb', 'MongoDB'], mongodb: ['mongodb', 'MongoDB'], firebase: ['firebase', 'Firebase'],
+  '@supabase/supabase-js': ['supabase', 'Supabase'], jquery: ['jquery', 'jQuery'], graphql: ['graphql', 'GraphQL'],
+  'styled-components': ['styledcomponents', 'styled-components'], '@mui/material': ['materialui', 'MUI'],
+  wrangler: ['cloudflare', 'Cloudflare'], '@astrojs/cloudflare': ['cloudflare', 'Cloudflare'],
+  pg: ['postgres', 'PostgreSQL'], mysql2: ['mysql', 'MySQL'],
+  '@anthropic-ai/sdk': ['', 'Claude API'], openai: ['', 'OpenAI API'],
+};
+
+async function packagesOf(repo) {
+  try {
+    const res = await fetch(`${API}/repos/${repo.full_name}/contents/package.json`, {
+      headers: { ...headers, Accept: 'application/vnd.github.raw+json' },
+    });
+    if (!res.ok) return null;
+    const pkg = JSON.parse(await res.text());
+    return Object.keys({ ...pkg.dependencies, ...pkg.devDependencies });
+  } catch { return null; }
+}
+
 async function contributionsLastYear() {
-  if (TOKEN) {
+  if (AUTH) {
     try {
       const res = await fetch(`${API}/graphql`, {
         method: 'POST',
@@ -73,13 +118,18 @@ async function contributionsLastYear() {
   return null;
 }
 
+const FW_COLORS = {
+  React: '#61dafb', 'React Native': '#61dafb', 'Next.js': '#e6edf3', Nuxt: '#00dc82', SvelteKit: '#ff3e00',
+  Angular: '#dd0031', Tailwind: '#38bdf8', Vite: '#bd34fe', Express: '#c9d1d9', Redux: '#764abc',
+  Cloudflare: '#f38020', Firebase: '#ffca28', Supabase: '#3ecf8e', 'Claude API': '#d97757',
+};
 const COLORS = {
   JavaScript: '#f1e05a', TypeScript: '#3178c6', HTML: '#e34c26', CSS: '#663399', SCSS: '#c6538c',
   Astro: '#ff5a03', Vue: '#41b883', Svelte: '#ff3e00', Python: '#3572A5', Shell: '#89e051',
   PowerShell: '#012456', Java: '#b07219', 'C#': '#178600', PHP: '#4F5D95', Go: '#00ADD8',
   Rust: '#dea584', MDX: '#fcb32c', Less: '#1d365d', Handlebars: '#f7931e', Dockerfile: '#384d54',
 };
-const colorOf = (lang) => COLORS[lang] || `hsl(${[...lang].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 360, 7)} 60% 60%)`;
+const colorOf = (lang) => COLORS[lang] || FW_COLORS[lang] || `hsl(${[...lang].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 360, 7)} 60% 60%)`;
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const fmt = (n) => (n == null ? '—' : n >= 1000 ? `${(n / 1000).toFixed(1).replace(/\.0$/, '')}k` : String(n));
 
@@ -97,7 +147,12 @@ const repos = await listRepos();
 const pub = repos.filter((r) => !r.private);
 const priv = repos.filter((r) => r.private);
 
-const langTotals = {}, recentLangs = {};
+// "Built with AI" only looks at repos created since I started vibe coding
+const conf = existsSync('tech.json') ? JSON.parse(readFileSync('tech.json', 'utf8')) : {};
+const aiSince = new Date(conf.aiSince || 0).getTime();
+const langTotals = {}, recentLangs = {}, recentPkgs = {};
+const aiLangs = {}, aiPkgs = {};
+let aiNode = false;
 const commits = { pub: 0, priv: 0 };
 const cutoff = Date.now() - RECENT_DAYS * 864e5;
 for (const r of repos) {
@@ -105,9 +160,19 @@ for (const r of repos) {
   try { langs = await get(`/repos/${r.full_name}/languages`); } catch {}
   commits[r.private ? 'priv' : 'pub'] += await commitsIn(r);
   const recent = new Date(r.pushed_at) >= cutoff;
+  const ai = new Date(r.created_at).getTime() >= aiSince;
+  const pkgs = await packagesOf(r);
+  if (pkgs && ai) aiNode = true;
+  for (const p of pkgs || []) {
+    if (!PKG_ICONS[p]) continue;
+    const [, label] = PKG_ICONS[p];
+    if (ai) aiPkgs[label] = (aiPkgs[label] || 0) + 1;
+    if (recent) recentPkgs[label] = Math.max(recentPkgs[label] || 0, new Date(r.pushed_at).getTime());
+  }
   for (const [lang, bytes] of Object.entries(langs)) {
     langTotals[lang] = (langTotals[lang] || 0) + bytes;
     if (recent) recentLangs[lang] = (recentLangs[lang] || 0) + bytes;
+    if (ai) aiLangs[lang] = (aiLangs[lang] || 0) + bytes;
   }
 }
 const totalBytes = Object.values(langTotals).reduce((a, b) => a + b, 0) || 1;
@@ -116,7 +181,34 @@ if (langs.length > 8) {
   const rest = langs.slice(7).reduce((a, [, b]) => a + b, 0);
   langs = [...langs.slice(0, 7), ['Other', rest]];
 }
-const lately = Object.entries(recentLangs).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([l]) => l);
+const lately = [...new Set([
+  ...Object.entries(recentPkgs).sort((a, b) => b[1] - a[1]).map(([l]) => l),
+  ...Object.entries(recentLangs).sort((a, b) => b[1] - a[1]).map(([l]) => l),
+])].slice(0, 8);
+
+/* ---------------- README tech block ---------------- */
+const hide = new Set([...(conf.hide || []), ...(conf.core || [])]);
+const icons = [];
+const add = (id) => { if (id && !hide.has(id) && !icons.includes(id)) icons.push(id); };
+for (const [lang] of Object.entries(aiLangs).sort((a, b) => b[1] - a[1])) add(LANG_ICONS[lang]);
+for (const [label] of Object.entries(aiPkgs).sort((a, b) => b[1] - a[1])) {
+  add(Object.values(PKG_ICONS).find(([, l]) => l === label)?.[0]);
+}
+if (aiNode) add('nodejs');
+if (existsSync('README.md')) {
+  const readme = readFileSync('README.md', 'utf8');
+  const block = icons.length ? `<!-- TECH:START -->
+### 🤖 Built with AI
+
+Tech from my projects that I built together with AI. I know the basics and learn the rest as I go.
+
+<p align="center">
+  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=${icons.join(',')}&theme=dark&perline=10" alt="Tech: ${icons.join(', ')}"></a>
+</p>
+<!-- TECH:END -->` : '<!-- TECH:START -->\n<!-- TECH:END -->';
+  const next = readme.replace(/<!-- TECH:START -->[\s\S]*?<!-- TECH:END -->/, block);
+  if (next !== readme) writeFileSync('README.md', next);
+}
 const recent = pub
   .filter((r) => r.name.toLowerCase() !== USER.toLowerCase())
   .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
@@ -212,4 +304,4 @@ ${chipSvg}
 
 mkdirSync('assets', { recursive: true });
 writeFileSync('assets/stats.svg', svg);
-console.log(`stats.svg: ${pub.length} public, ${priv.length} private, commits ${commits.pub}/${commits.priv}, ${langs.length} langs, lately: ${lately.join(', ') || '—'}, contributions: ${contrib}`);
+console.log(`stats.svg: ${pub.length} public, ${priv.length} private, commits ${commits.pub}/${commits.priv}, ${langs.length} langs, lately: ${lately.join(', ') || '—'}, icons: ${icons.join(',')}, contributions: ${contrib}`);
