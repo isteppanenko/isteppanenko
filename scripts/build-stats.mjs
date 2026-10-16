@@ -1,7 +1,7 @@
 // Builds assets/stats.svg from GitHub data. Runs daily in GitHub Actions.
 //
 // Privacy: private repositories only ever contribute aggregate numbers
-// (repo count, language bytes, contribution count). Their names, descriptions
+// (repo count, language bytes, commit and contribution counts). Their names, descriptions
 // and code are never read into the card. Only public repos are listed by name.
 //
 // Env:
@@ -37,6 +37,20 @@ async function listRepos() {
     if (batch.length < 100) break;
   }
   return all.filter((r) => !r.fork && !r.archived && r.owner.login.toLowerCase() === USER.toLowerCase());
+}
+
+// Commits by USER on the default branch, from the contributors list
+// (needs only the "Metadata" permission, not access to the code).
+async function commitsIn(repo) {
+  for (let page = 1; page <= 5; page++) {
+    const res = await fetch(`${API}/repos/${repo.full_name}/contributors?per_page=100&page=${page}`, { headers });
+    if (res.status !== 200) return 0; // 204 = empty repo
+    const list = await res.json();
+    const me = list.find((c) => c.login?.toLowerCase() === USER.toLowerCase());
+    if (me) return me.contributions;
+    if (list.length < 100) return 0;
+  }
+  return 0;
 }
 
 async function contributionsLastYear() {
@@ -84,10 +98,12 @@ const pub = repos.filter((r) => !r.private);
 const priv = repos.filter((r) => r.private);
 
 const langTotals = {}, recentLangs = {};
+const commits = { pub: 0, priv: 0 };
 const cutoff = Date.now() - RECENT_DAYS * 864e5;
 for (const r of repos) {
   let langs = {};
   try { langs = await get(`/repos/${r.full_name}/languages`); } catch {}
+  commits[r.private ? 'priv' : 'pub'] += await commitsIn(r);
   const recent = new Date(r.pushed_at) >= cutoff;
   for (const [lang, bytes] of Object.entries(langs)) {
     langTotals[lang] = (langTotals[lang] || 0) + bytes;
@@ -109,10 +125,12 @@ const stars = pub.reduce((a, r) => a + r.stargazers_count, 0);
 const contrib = await contributionsLastYear();
 
 /* ---------------- render ---------------- */
-const W = 800, H = 352;
+const W = 800, H = 408, SHIFT = 56;
 const tiles = [
   [fmt(pub.length), 'public repos'],
   [TOKEN ? fmt(priv.length) : '—', 'private repos 🔒'],
+  [fmt(commits.pub), 'commits · public'],
+  [TOKEN ? fmt(commits.priv) : '—', 'commits · private 🔒'],
   [fmt(contrib), 'contributions · last year'],
   [fmt(stars), 'stars earned'],
 ];
@@ -174,22 +192,24 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" wid
 </style>
 <rect x="1" y="1" width="${W - 2}" height="${H - 2}" rx="14" fill="#13111f" stroke="#2f2a52" stroke-width="2"/>
 <text class="mono" x="32" y="36"><tspan class="acc">${esc(USER)}@github</tspan>:~$ git stats --all</text>
-<rect class="cur" x="${32 + (USER.length + 26) * 7.8}" y="25" width="7" height="14" fill="#a371f7"/>
+<rect class="cur" x="${32 + (USER.length + 26) * 7.45 + 4}" y="25" width="7" height="14" fill="#a371f7"/>
 <line x1="24" y1="52" x2="${W - 24}" y2="52" stroke="#2f2a52"/>
 ${tileSvg}
 <text class="h" x="${BX}" y="70">Languages</text>
 <clipPath id="bar"><rect x="${BX}" y="80" width="${BW}" height="10" rx="5"/></clipPath>
 <g clip-path="url(#bar)"><rect x="${BX}" y="80" width="${BW}" height="10" fill="#2f2a52"/>${barSvg}</g>
 ${legendSvg}
+<g transform="translate(0 ${SHIFT})">
 <line x1="24" y1="212" x2="${W - 24}" y2="212" stroke="#2f2a52"/>
 <text class="h" x="32" y="234">Recently pushed</text>
 ${recentSvg}
 <text class="h" x="${BX}" y="234">Lately using</text>
 ${chipSvg}
+</g>
 <text class="dim" x="${W - 24}" y="${H - 16}" text-anchor="end" font-size="10">${TOKEN ? 'incl. private repos (numbers only)' : 'public repos'} · updated ${today}</text>
 </svg>
 `;
 
 mkdirSync('assets', { recursive: true });
 writeFileSync('assets/stats.svg', svg);
-console.log(`stats.svg: ${pub.length} public, ${priv.length} private, ${langs.length} langs, lately: ${lately.join(', ') || '—'}, contributions: ${contrib}`);
+console.log(`stats.svg: ${pub.length} public, ${priv.length} private, commits ${commits.pub}/${commits.priv}, ${langs.length} langs, lately: ${lately.join(', ') || '—'}, contributions: ${contrib}`);
