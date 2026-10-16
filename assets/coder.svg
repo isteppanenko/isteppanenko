@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" width="800" height="420" role="img" aria-label="Animated illustration: a developer in headphones types code at a desk at night, a small dog wags its tail next to the keyboard">
+<defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d1638"/><stop offset="1" stop-color="#110d22"/></linearGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#121a42"/><stop offset="1" stop-color="#3b2a66"/></linearGradient>
+  <linearGradient id="deskf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2042"/><stop offset="1" stop-color="#140f24"/></linearGradient>
+  <radialGradient id="screenGlow"><stop offset="0" stop-color="#58a6ff" stop-opacity=".35"/><stop offset="1" stop-color="#58a6ff" stop-opacity="0"/></radialGradient>
+  <radialGradient id="moonGlow"><stop offset="0" stop-color="#f8e7b5" stop-opacity=".45"/><stop offset="1" stop-color="#f8e7b5" stop-opacity="0"/></radialGradient>
+  <filter id="neon" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="win"><rect x="44" y="44" width="142" height="122"/></clipPath>
+</defs>
+<style>
+  * { transform-box: view-box; }
+  .code text { font: 10px 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }
+  .k { fill: #ff7b72 } .v { fill: #ffa657 } .p { fill: #c9d1d9 } .a { fill: #79c0ff } .s { fill: #a5d6ff }
+  .n { fill: #79c0ff } .f { fill: #d2a8ff } .c { fill: #8b949e; font-style: italic }
+  .ln { fill: #484f58; font: 9px Consolas, monospace }
+  .term { fill: #c9d1d9 } .ok { fill: #3fb950 }
+  .ui { font: 9px 'Segoe UI', Helvetica, Arial, sans-serif; fill: #8b949e }
+  .cur { animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0 } }
+
+  .head { transform-origin: 232px 206px; animation: bob .9s ease-in-out infinite; }
+  @keyframes bob { 0%,100% { transform: rotate(0) } 50% { transform: rotate(4deg) translateY(1px) } }
+  .hl { animation: tap .2s ease-in-out infinite alternate; }
+  .hr { animation: tap .26s ease-in-out infinite alternate-reverse; }
+  @keyframes tap { from { transform: translateY(0) } to { transform: translateY(-2.5px) } }
+
+  .star { animation: twinkle 3s ease-in-out infinite; }
+  .s2 { animation-delay: -.7s } .s3 { animation-delay: -1.4s } .s4 { animation-delay: -2.1s } .s5 { animation-delay: -2.6s }
+  @keyframes twinkle { 0%,100% { opacity: 1 } 50% { opacity: .15 } }
+
+  .steam { stroke: #c9d1d9; stroke-width: 2; fill: none; stroke-linecap: round; opacity: 0; animation: steam 3s ease-out infinite; }
+  .st2 { animation-delay: 1s } .st3 { animation-delay: 2s }
+  @keyframes steam { 0% { opacity: 0; transform: translateY(6px) } 30% { opacity: .55 } 100% { opacity: 0; transform: translateY(-18px) } }
+
+  .note { opacity: 0; animation: note 3.6s ease-out infinite; }
+  .n2 { animation-delay: 1.8s }
+  @keyframes note { 0% { opacity: 0; transform: translate(0,0) } 20% { opacity: 1 } 100% { opacity: 0; transform: translate(26px,-50px) rotate(15deg) } }
+
+  .tail { transform-origin: 66px 284px; animation: wag .35s ease-in-out infinite alternate; }
+  @keyframes wag { from { transform: rotate(-18deg) } to { transform: rotate(16deg) } }
+  .dhead { transform-origin: 124px 284px; animation: tilt 5s ease-in-out infinite; }
+  @keyframes tilt { 0%,40%,100% { transform: rotate(0) } 50%,70% { transform: rotate(-9deg) } }
+  .ear { transform-origin: 120px 262px; animation: flop 5s ease-in-out infinite; }
+  @keyframes flop { 0%,40%,100% { transform: rotate(0) } 50%,70% { transform: rotate(8deg) } }
+  .heart { opacity: 0; font: 12px 'Segoe UI Symbol', Arial, sans-serif; fill: #ff79c6; animation: heart 5s ease-out infinite 1s; }
+  @keyframes heart { 0% { opacity: 0; transform: translate(0,0) } 15% { opacity: 1 } 45%,100% { opacity: 0; transform: translate(6px,-30px) } }
+
+  .leaf { transform-origin: 752px 278px; animation: sway 5s ease-in-out infinite; }
+  @keyframes sway { 0%,100% { transform: rotate(-3deg) } 50% { transform: rotate(3deg) } }
+
+  .neon { animation: flicker 6s linear infinite; }
+  @keyframes flicker { 0%,18%,22%,60%,100% { opacity: 1 } 19%,21% { opacity: .25 } 61% { opacity: .5 } }
+
+  .led { animation: rgb 6s linear infinite; }
+  @keyframes rgb { 0%,100% { stroke: #ff79c6 } 33% { stroke: #8be9fd } 66% { stroke: #a371f7 } }
+
+  .glow { animation: pulse 4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: .8 } 50% { opacity: 1 } }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important } }
+</style>
+
+<!-- room -->
+<rect width="800" height="420" fill="url(#wall)"/>
+<polygon points="44,166 186,166 250,300 60,300" fill="#8a7fd1" opacity=".05"/>
+
+<!-- window -->
+<g clip-path="url(#win)">
+  <rect x="44" y="44" width="142" height="122" fill="url(#sky)"/>
+  <circle cx="150" cy="76" r="40" fill="url(#moonGlow)"/>
+  <circle cx="150" cy="76" r="15" fill="#f8e7b5"/>
+  <circle cx="157" cy="70" r="13" fill="#17204a"/>
+  <circle class="star" cx="70" cy="62" r="1.6" fill="#fff"/>
+  <circle class="star s2" cx="102" cy="88" r="1.2" fill="#fff"/>
+  <circle class="star s3" cx="62" cy="120" r="1.4" fill="#fff"/>
+  <circle class="star s4" cx="118" cy="132" r="1.1" fill="#fff"/>
+  <circle class="star s5" cx="172" cy="118" r="1.5" fill="#fff"/>
+  <path d="M44 166 L44 150 Q60 140 76 148 Q92 136 110 146 Q128 138 146 150 Q166 140 186 150 L186 166 Z" fill="#0c0a1c"/>
+  <rect x="58" y="152" width="4" height="5" fill="#ffd27a" opacity=".8"/><rect x="128" y="154" width="4" height="4" fill="#ffd27a" opacity=".7"/>
+</g>
+<rect x="41" y="41" width="148" height="128" fill="none" stroke="#2f2a52" stroke-width="6" rx="3"/>
+<path d="M115 44 V166 M44 105 H186" stroke="#2f2a52" stroke-width="4"/>
+
+<!-- neon sign -->
+<g class="neon" filter="url(#neon)">
+  <text x="730" y="118" text-anchor="middle" font-family="Consolas, 'Courier New', monospace" font-size="38" font-weight="700" fill="none" stroke="#ff79c6" stroke-width="2">&lt;/&gt;</text>
+</g>
+
+<!-- screen glow -->
+<ellipse class="glow" cx="510" cy="175" rx="230" ry="140" fill="url(#screenGlow)"/>
+
+<!-- monitor -->
+<rect x="497" y="268" width="26" height="26" fill="#1a1b2b"/>
+<rect x="466" y="292" width="88" height="8" rx="4" fill="#23243a"/>
+<rect x="362" y="70" width="296" height="200" rx="10" fill="#0b0c14" stroke="#2f3150" stroke-width="2"/>
+<rect x="370" y="78" width="280" height="184" rx="3" fill="#0d1117"/>
+<rect x="370" y="78" width="280" height="16" rx="3" fill="#161b22"/>
+<circle cx="380" cy="86" r="3" fill="#ff5f56"/><circle cx="390" cy="86" r="3" fill="#ffbd2e"/><circle cx="400" cy="86" r="3" fill="#27c93f"/>
+<rect x="412" y="80" width="46" height="14" rx="2" fill="#0d1117"/>
+<text class="ui" x="420" y="90">dev.js</text>
+<g class="code">
+  <text class="ln" x="386" y="114" text-anchor="end">1</text><text class="ln" x="386" y="129" text-anchor="end">2</text><text class="ln" x="386" y="144" text-anchor="end">3</text><text class="ln" x="386" y="159" text-anchor="end">4</text><text class="ln" x="386" y="174" text-anchor="end">5</text><text class="ln" x="386" y="189" text-anchor="end">6</text><text class="ln" x="386" y="204" text-anchor="end">7</text><text class="ln" x="386" y="219" text-anchor="end">8</text>
+  <g>
+    <animate attributeName="opacity" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.9459;0.976;1" values="1;1;0;0"/>
+    
+      <clipPath id="l0"><rect x="394" y="103" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.036;0.079;1" values="0;0;78;78"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="114" textLength="78" lengthAdjust="spacingAndGlyphs" clip-path="url(#l0)"><tspan class="k">const </tspan><tspan class="v">dev</tspan><tspan class="p"> = {</tspan></text>
+      <clipPath id="l1"><rect x="394" y="118" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.0958;0.1454;1" values="0;0;90;90"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="129" textLength="90" lengthAdjust="spacingAndGlyphs" clip-path="url(#l1)"><tspan class="p">  </tspan><tspan class="a">name</tspan><tspan class="p">: </tspan><tspan class="s">"Ihor"</tspan><tspan class="p">,</tspan></text>
+      <clipPath id="l2"><rect x="394" y="133" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.1622;0.2911;1" values="0;0;234;234"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="144" textLength="234" lengthAdjust="spacingAndGlyphs" clip-path="url(#l2)"><tspan class="p">  </tspan><tspan class="a">base</tspan><tspan class="p">: [</tspan><tspan class="s">"HTML"</tspan><tspan class="p">, </tspan><tspan class="s">"CSS"</tspan><tspan class="p">, </tspan><tspan class="s">"JS"</tspan><tspan class="p">, </tspan><tspan class="s">"React"</tspan><tspan class="p">],</tspan></text>
+      <clipPath id="l3"><rect x="394" y="148" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.3079;0.3641;1" values="0;0;102;102"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="159" textLength="102" lengthAdjust="spacingAndGlyphs" clip-path="url(#l3)"><tspan class="p">  </tspan><tspan class="a">school</tspan><tspan class="p">: </tspan><tspan class="s">"GoIT"</tspan><tspan class="p">,</tspan></text>
+      <clipPath id="l4"><rect x="394" y="163" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.3809;0.4668;1" values="0;0;156;156"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="174" textLength="156" lengthAdjust="spacingAndGlyphs" clip-path="url(#l4)"><tspan class="p">  </tspan><tspan class="a">now</tspan><tspan class="p">: </tspan><tspan class="s">"vibe coding + AI"</tspan><tspan class="p">,</tspan></text>
+      <clipPath id="l5"><rect x="394" y="178" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.4836;0.4902;1" values="0;0;12;12"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="189" textLength="12" lengthAdjust="spacingAndGlyphs" clip-path="url(#l5)"><tspan class="p">};</tspan></text>
+      <clipPath id="l7"><rect x="394" y="208" height="15" width="0">
+        <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.5164;0.6221;1" values="0;0;192;192"/>
+      </rect></clipPath>
+      <text xml:space="preserve" x="394" y="219" textLength="192" lengthAdjust="spacingAndGlyphs" clip-path="url(#l7)"><tspan class="v">dev</tspan><tspan class="p">.</tspan><tspan class="f">build</tspan><tspan class="p">();  </tspan><tspan class="c">// faster, with AI</tspan></text>
+    <rect x="370" y="232" width="280" height="30" fill="#161b22"/>
+    <text class="ui" x="378" y="241" font-size="7">TERMINAL</text>
+    <clipPath id="tc"><rect x="380" y="238" height="15" width="0">
+      <animate attributeName="width" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.657;0.7116;1" values="0;0;78;78"/>
+    </rect></clipPath>
+    <text class="term" x="380" y="249" textLength="78" lengthAdjust="spacingAndGlyphs" clip-path="url(#tc)">$ npm run dev</text>
+    <text class="ok" x="472" y="249" opacity="0">✓ ready<animate attributeName="opacity" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.7537;0.7627;1" values="0;0;1;1"/></text>
+    <g class="cur"><rect width="1.6" height="11" fill="#e6edf3">
+      <animate attributeName="x" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.036;0.036;0.079;0.0958;0.0958;0.1454;0.1622;0.1622;0.2911;0.3079;0.3079;0.3641;0.3809;0.3809;0.4668;0.4836;0.4836;0.4902;0.5071;0.5071;0.5104;0.5164;0.5164;0.6221;0.657;0.657;0.7116;1;1" values="394;394;394;472;472;394;484;484;394;628;628;394;496;496;394;550;550;394;406;406;394;394;394;394;586;586;380;458;458;394"/>
+      <animate attributeName="y" dur="16.645s" repeatCount="indefinite" keyTimes="0;0.036;0.036;0.079;0.0958;0.0958;0.1454;0.1622;0.1622;0.2911;0.3079;0.3079;0.3641;0.3809;0.3809;0.4668;0.4836;0.4836;0.4902;0.5071;0.5071;0.5104;0.5164;0.5164;0.6221;0.657;0.657;0.7116;1;1" values="105;105;105;105;105;120;120;120;135;135;135;150;150;150;165;165;165;180;180;180;195;195;195;210;210;210;240;240;240;105"/>
+    </rect></g>
+  </g>
+</g>
+
+<!-- desk -->
+<rect x="0" y="300" width="800" height="120" fill="url(#deskf)"/>
+<rect x="0" y="298" width="800" height="8" fill="#3a2e5c"/>
+<line class="led" x1="0" y1="309" x2="800" y2="309" stroke="#ff79c6" stroke-width="2" filter="url(#neon)"/>
+
+<!-- keyboard -->
+<rect x="312" y="291" width="104" height="9" rx="2" fill="#262840"/>
+<path d="M318 294 H410 M318 297 H410" stroke="#3b3e5e" stroke-width="1" stroke-dasharray="4 2"/>
+
+<!-- coffee -->
+<g transform="translate(0 0)">
+  <path class="steam" d="M686 262 q-4 -6 0 -12 q4 -6 0 -12"/>
+  <path class="steam st2" d="M694 262 q-4 -6 0 -12 q4 -6 0 -12"/>
+  <path class="steam st3" d="M702 262 q-4 -6 0 -12 q4 -6 0 -12"/>
+  <rect x="680" y="268" width="28" height="30" rx="4" fill="#e6edf3"/>
+  <path d="M708 275 q11 0 11 9 q0 9 -11 9" stroke="#e6edf3" stroke-width="4" fill="none"/>
+  <text x="694" y="287" text-anchor="middle" font-family="Consolas, monospace" font-size="9" font-weight="700" fill="#a371f7">&lt;/&gt;</text>
+</g>
+
+<!-- plant -->
+<g class="leaf">
+  <path d="M752 278 Q732 252 738 232 Q752 252 752 278" fill="#3fb950"/>
+  <path d="M752 278 Q770 250 768 230 Q752 252 752 278" fill="#2ea043"/>
+  <path d="M752 278 Q750 246 758 222 Q760 252 752 278" fill="#56d364"/>
+</g>
+<path d="M738 276 H766 L762 300 H742 Z" fill="#8957e5"/>
+
+<!-- dog -->
+<g>
+  <g class="tail"><path d="M66 284 Q54 278 52 264" stroke="#d99a55" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+  <ellipse cx="92" cy="286" rx="30" ry="13" fill="#e8ad68"/>
+  <ellipse cx="72" cy="294" rx="10" ry="5" fill="#d99a55"/>
+  <ellipse cx="114" cy="289" rx="9" ry="8" fill="#fff4e6"/>
+  <ellipse cx="126" cy="296" rx="8" ry="3.6" fill="#fff4e6"/>
+  <ellipse cx="136" cy="297" rx="7" ry="3.4" fill="#fff4e6"/>
+  <g class="dhead">
+    <circle cx="126" cy="270" r="15" fill="#e8ad68"/>
+    <ellipse cx="138" cy="277" rx="9" ry="6.5" fill="#fff4e6"/>
+    <circle cx="146" cy="274" r="2.6" fill="#2a1d17"/>
+    <path d="M140 281 q3 2 6 0" stroke="#2a1d17" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="141" cy="284" rx="2.4" ry="3.2" fill="#ff7b9c"/>
+    <circle cx="131" cy="266" r="2.3" fill="#2a1d17"/><circle cx="131.8" cy="265.2" r=".7" fill="#fff"/>
+    <g class="ear"><path d="M114 258 Q108 262 109 276 Q116 278 121 262 Z" fill="#b8763a"/></g>
+  </g>
+  <text class="heart" x="140" y="252">♥</text>
+</g>
+
+<!-- developer (3/4 back view) -->
+<ellipse cx="268" cy="190" rx="46" ry="70" fill="#58a6ff" opacity=".08"/>
+<path d="M150 330 C150 258 176 222 232 218 C286 222 306 250 312 286 L318 330 Z" fill="#5b4b8a"/>
+<ellipse cx="228" cy="220" rx="36" ry="12" fill="#4a3c74"/>
+<rect x="223" y="198" width="18" height="20" fill="#c98f6b"/>
+<g class="head">
+  <rect x="190" y="160" width="11" height="24" rx="5" fill="#1c1c2b"/>
+  <circle cx="234" cy="177" r="29" fill="#e0a982"/>
+  <circle cx="226" cy="172" r="30" fill="#2a1d17"/>
+  <path d="M206 150 q8 -14 20 -8 q6 -12 18 -4 q10 -2 12 8 q-26 -6 -50 4 Z" fill="#2a1d17"/>
+  <ellipse cx="256" cy="181" rx="4.5" ry="7" fill="#d4996f"/>
+  <path d="M197 170 A31 31 0 0 1 258 162" stroke="#4b4e73" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <rect x="250" y="164" width="15" height="26" rx="7" fill="#ff79c6"/>
+  <rect x="254" y="169" width="7" height="16" rx="3.5" fill="#c74f9a"/>
+  <text class="note" x="268" y="160" font-size="14" fill="#8be9fd">♪</text>
+  <text class="note n2" x="268" y="160" font-size="12" fill="#ff79c6">♫</text>
+</g>
+<!-- chair -->
+<rect x="156" y="250" width="152" height="180" rx="24" fill="#1e1f36"/>
+<rect x="210" y="258" width="44" height="172" rx="10" fill="#ff79c6" opacity=".55"/>
+<!-- arms & hands -->
+<path d="M292 240 Q318 270 332 290" stroke="#5b4b8a" stroke-width="18" fill="none" stroke-linecap="round"/>
+<path d="M286 250 Q300 278 316 292" stroke="#4a3c74" stroke-width="15" fill="none" stroke-linecap="round"/>
+<ellipse class="hl" cx="322" cy="292" rx="7" ry="4.5" fill="#d4996f"/>
+<ellipse class="hr" cx="340" cy="291" rx="7.5" ry="5" fill="#e0a982"/>
+</svg>

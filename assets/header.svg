@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 64" width="800" height="64" role="img" aria-label="Hi, I'm Ihor · Frontend: JavaScript · React · Base from GoIT courses · Now: vibe coding with AI · Solid basics → faster builds">
+  <style>
+    text { font: 600 25px 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; fill: #a371f7; }
+    .cur { fill: #a371f7; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+  </style>
+  <clipPath id="c0"><rect x="310" y="0" height="64" width="0">
+    <animate attributeName="width" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.0131;0.0523;0.1351;0.1481;1" values="0;0;180;180;0;0"/>
+  </rect></clipPath>
+  <text x="310" y="42" textLength="180" lengthAdjust="spacingAndGlyphs" clip-path="url(#c0)">Hi, I'm Ihor</text>
+  <clipPath id="c1"><rect x="190" y="0" height="64" width="0">
+    <animate attributeName="width" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.1634;0.2549;0.3377;0.3682;1" values="0;0;420;420;0;0"/>
+  </rect></clipPath>
+  <text x="190" y="42" textLength="420" lengthAdjust="spacingAndGlyphs" clip-path="url(#c1)">Frontend: JavaScript · React</text>
+  <clipPath id="c2"><rect x="235" y="0" height="64" width="0">
+    <animate attributeName="width" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.3834;0.4553;0.5381;0.5621;1" values="0;0;330;330;0;0"/>
+  </rect></clipPath>
+  <text x="235" y="42" textLength="330" lengthAdjust="spacingAndGlyphs" clip-path="url(#c2)">Base from GoIT courses</text>
+  <clipPath id="c3"><rect x="220" y="0" height="64" width="0">
+    <animate attributeName="width" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.5773;0.6558;0.7386;0.7647;1" values="0;0;360;360;0;0"/>
+  </rect></clipPath>
+  <text x="220" y="42" textLength="360" lengthAdjust="spacingAndGlyphs" clip-path="url(#c3)">Now: vibe coding with AI</text>
+  <clipPath id="c4"><rect x="190" y="0" height="64" width="0">
+    <animate attributeName="width" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.78;0.8715;0.9542;0.9847;1" values="0;0;420;420;0;0"/>
+  </rect></clipPath>
+  <text x="190" y="42" textLength="420" lengthAdjust="spacingAndGlyphs" clip-path="url(#c4)">Solid basics → faster builds</text>
+  <rect class="cur" x="310" y="18" width="3" height="30">
+    <animate attributeName="x" dur="22.95s" repeatCount="indefinite" keyTimes="0;0.0131;0.0523;0.1351;0.1481;0.1481;0.1634;0.2549;0.3377;0.3682;0.3682;0.3834;0.4553;0.5381;0.5621;0.5621;0.5773;0.6558;0.7386;0.7647;0.7647;0.78;0.8715;0.9542;0.9847;1" values="310;310;490;490;310;190;190;610;610;190;235;235;565;565;235;220;220;580;580;220;190;190;610;610;190;310"/>
+  </rect>
+</svg>
