@@ -37,13 +37,6 @@ What I learned at GoIT and work with on my own.
 </p>
 
 <!-- TECH:START -->
-### 🤖 Built with AI
-
-Tech from my projects that I built together with AI. I know the basics and learn the rest as I go.
-
-<p align="center">
-  <a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=astro&theme=dark&perline=10" alt="Tech: astro"></a>
-</p>
 <!-- TECH:END -->
 
 ### 📊 Stats

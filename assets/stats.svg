@@ -29,17 +29,17 @@
     <text class="lbl" x="32" y="182">commits · public</text></g><g class="fade" style="animation-delay:0.4s">
     <text class="num" x="172" y="164">—</text>
     <text class="lbl" x="172" y="182">commits · private 🔒</text></g><g class="fade" style="animation-delay:0.5s">
-    <text class="num" x="32" y="228">2</text>
+    <text class="num" x="32" y="228">3</text>
     <text class="lbl" x="32" y="246">contributions · last year</text></g><g class="fade" style="animation-delay:0.6s">
     <text class="num" x="172" y="228">0</text>
     <text class="lbl" x="172" y="246">stars earned</text></g>
 <text class="h" x="330" y="70">Languages</text>
 <clipPath id="bar"><rect x="330" y="80" width="438" height="10" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="222.59" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.36s" x="552.59" y="80" width="126.13" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.42s" x="678.72" y="80" width="88.33" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.48s" x="767.05" y="80" width="0.95" height="10" fill="#c6538c"/></g>
+<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="219.37" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.36s" x="549.37" y="80" width="124.31" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.42s" x="673.69" y="80" width="93.38" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.48s" x="767.06" y="80" width="0.94" height="10" fill="#c6538c"/></g>
 <g class="fade" style="animation-delay:0.5s"><circle cx="335" cy="112" r="5" fill="#e34c26"/>
-    <text class="txt" x="346" y="116">HTML</text><text class="dim" x="530" y="116" text-anchor="end">50.8%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#663399"/>
-    <text class="txt" x="566" y="116">CSS</text><text class="dim" x="750" y="116" text-anchor="end">28.8%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#f1e05a"/>
-    <text class="txt" x="346" y="138">JavaScript</text><text class="dim" x="530" y="138" text-anchor="end">20.2%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#c6538c"/>
+    <text class="txt" x="346" y="116">HTML</text><text class="dim" x="530" y="116" text-anchor="end">50.1%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#663399"/>
+    <text class="txt" x="566" y="116">CSS</text><text class="dim" x="750" y="116" text-anchor="end">28.4%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#f1e05a"/>
+    <text class="txt" x="346" y="138">JavaScript</text><text class="dim" x="530" y="138" text-anchor="end">21.3%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#c6538c"/>
     <text class="txt" x="566" y="138">SCSS</text><text class="dim" x="750" y="138" text-anchor="end">0.2%</text></g>
 <g transform="translate(0 56)">
 <line x1="24" y1="212" x2="776" y2="212" stroke="#2f2a52"/>
