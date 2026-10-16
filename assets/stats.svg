@@ -18,29 +18,29 @@
 </style>
 <rect x="1" y="1" width="798" height="406" rx="14" fill="#13111f" stroke="#2f2a52" stroke-width="2"/>
 <text class="mono" x="32" y="36"><tspan class="acc">isteppanenko@github</tspan>:~$ git stats --all</text>
-<rect class="cur" x="328.4" y="25" width="7" height="14" fill="#a371f7"/>
+<rect class="cur" x="319.1" y="25" width="7" height="14" fill="#a371f7"/>
 <line x1="24" y1="52" x2="776" y2="52" stroke="#2f2a52"/>
 <g class="fade" style="animation-delay:0.1s">
     <text class="num" x="32" y="100">20</text>
     <text class="lbl" x="32" y="118">public repos</text></g><g class="fade" style="animation-delay:0.2s">
     <text class="num" x="172" y="100">—</text>
     <text class="lbl" x="172" y="118">private repos 🔒</text></g><g class="fade" style="animation-delay:0.30000000000000004s">
-    <text class="num" x="32" y="164">112</text>
+    <text class="num" x="32" y="164">173</text>
     <text class="lbl" x="32" y="182">commits · public</text></g><g class="fade" style="animation-delay:0.4s">
     <text class="num" x="172" y="164">—</text>
     <text class="lbl" x="172" y="182">commits · private 🔒</text></g><g class="fade" style="animation-delay:0.5s">
-    <text class="num" x="32" y="228">1</text>
+    <text class="num" x="32" y="228">2</text>
     <text class="lbl" x="32" y="246">contributions · last year</text></g><g class="fade" style="animation-delay:0.6s">
     <text class="num" x="172" y="228">0</text>
     <text class="lbl" x="172" y="246">stars earned</text></g>
 <text class="h" x="330" y="70">Languages</text>
 <clipPath id="bar"><rect x="330" y="80" width="438" height="10" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="265.89" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.36s" x="595.89" y="80" width="125.83" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.42s" x="721.72" y="80" width="44.82" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.48s" x="766.54" y="80" width="1.46" height="10" fill="#c6538c"/></g>
+<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="222.59" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.36s" x="552.59" y="80" width="126.13" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.42s" x="678.72" y="80" width="88.33" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.48s" x="767.05" y="80" width="0.95" height="10" fill="#c6538c"/></g>
 <g class="fade" style="animation-delay:0.5s"><circle cx="335" cy="112" r="5" fill="#e34c26"/>
-    <text class="txt" x="346" y="116">HTML</text><text class="dim" x="530" y="116" text-anchor="end">60.7%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#663399"/>
-    <text class="txt" x="566" y="116">CSS</text><text class="dim" x="750" y="116" text-anchor="end">28.7%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#f1e05a"/>
-    <text class="txt" x="346" y="138">JavaScript</text><text class="dim" x="530" y="138" text-anchor="end">10.2%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#c6538c"/>
-    <text class="txt" x="566" y="138">SCSS</text><text class="dim" x="750" y="138" text-anchor="end">0.3%</text></g>
+    <text class="txt" x="346" y="116">HTML</text><text class="dim" x="530" y="116" text-anchor="end">50.8%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#663399"/>
+    <text class="txt" x="566" y="116">CSS</text><text class="dim" x="750" y="116" text-anchor="end">28.8%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#f1e05a"/>
+    <text class="txt" x="346" y="138">JavaScript</text><text class="dim" x="530" y="138" text-anchor="end">20.2%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#c6538c"/>
+    <text class="txt" x="566" y="138">SCSS</text><text class="dim" x="750" y="138" text-anchor="end">0.2%</text></g>
 <g transform="translate(0 56)">
 <line x1="24" y1="212" x2="776" y2="212" stroke="#2f2a52"/>
 <text class="h" x="32" y="234">Recently pushed</text>
@@ -58,7 +58,8 @@
     <text class="txt" x="48" y="320">goit-react-hw-01</text>
     <text class="dim" x="296" y="320" text-anchor="end">1 yr ago</text></g>
 <text class="h" x="330" y="234">Lately using</text>
-<text class="dim" x="330" y="256">quiet lately</text>
+<g class="fade" style="animation-delay:0.9s"><rect x="330" y="244" width="102" height="24" rx="12" fill="#f1e05a" fill-opacity=".14" stroke="#f1e05a" stroke-opacity=".6"/>
+    <circle cx="343" cy="256" r="4" fill="#f1e05a"/><text class="txt" x="352" y="260">JavaScript</text></g>
 </g>
 <text class="dim" x="776" y="392" text-anchor="end" font-size="10">public repos · updated 2026-10-16</text>
 </svg>
