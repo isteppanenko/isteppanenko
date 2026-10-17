@@ -25,7 +25,7 @@
     <text class="lbl" x="32" y="118">public repos</text></g><g class="fade" style="animation-delay:0.2s">
     <text class="num" x="172" y="100">—</text>
     <text class="lbl" x="172" y="118">private repos 🔒</text></g><g class="fade" style="animation-delay:0.30000000000000004s">
-    <text class="num" x="32" y="164">173</text>
+    <text class="num" x="32" y="164">174</text>
     <text class="lbl" x="32" y="182">commits · public</text></g><g class="fade" style="animation-delay:0.4s">
     <text class="num" x="172" y="164">—</text>
     <text class="lbl" x="172" y="182">commits · private 🔒</text></g><g class="fade" style="animation-delay:0.5s">
@@ -61,5 +61,5 @@
 <g class="fade" style="animation-delay:0.9s"><rect x="330" y="244" width="102" height="24" rx="12" fill="#f1e05a" fill-opacity=".14" stroke="#f1e05a" stroke-opacity=".6"/>
     <circle cx="343" cy="256" r="4" fill="#f1e05a"/><text class="txt" x="352" y="260">JavaScript</text></g>
 </g>
-<text class="dim" x="776" y="392" text-anchor="end" font-size="10">public repos · updated 2026-10-16</text>
+<text class="dim" x="776" y="392" text-anchor="end" font-size="10">public repos · updated 2026-10-17</text>
 </svg>
