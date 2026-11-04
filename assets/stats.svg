@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 408" width="800" height="408" role="img" aria-label="GitHub stats for isteppanenko: 20 public repositories, top languages HTML, Python, JavaScript">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 408" width="800" height="408" role="img" aria-label="GitHub stats for isteppanenko: 20 public repositories, top languages Python, HTML, TypeScript">
 <style>
   text { font-family: 'Segoe UI', -apple-system, Helvetica, Arial, sans-serif; }
   .mono { font: 13px 'JetBrains Mono', Consolas, 'Courier New', monospace; fill: #8b949e; }
@@ -27,7 +27,7 @@
     <text class="lbl" x="172" y="118">private repos 🔒</text></g><g class="fade" style="animation-delay:0.30000000000000004s">
     <text class="num" x="32" y="164">174</text>
     <text class="lbl" x="32" y="182">commits · public</text></g><g class="fade" style="animation-delay:0.4s">
-    <text class="num" x="172" y="164">357</text>
+    <text class="num" x="172" y="164">460</text>
     <text class="lbl" x="172" y="182">commits · private 🔒</text></g><g class="fade" style="animation-delay:0.5s">
     <text class="num" x="32" y="228">3</text>
     <text class="lbl" x="32" y="246">contributions · last year</text></g><g class="fade" style="animation-delay:0.6s">
@@ -35,16 +35,16 @@
     <text class="lbl" x="172" y="246">stars earned</text></g>
 <text class="h" x="330" y="70">Languages</text>
 <clipPath id="bar"><rect x="330" y="80" width="438" height="10" rx="5"/></clipPath>
-<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="136.24" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.36s" x="466.24" y="80" width="106.13" height="10" fill="#3572A5"/><rect class="grow" style="animation-delay:0.42s" x="572.37" y="80" width="87.00" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.48s" x="659.36" y="80" width="42.81" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.54s" x="702.17" y="80" width="37.92" height="10" fill="#3178c6"/><rect class="grow" style="animation-delay:0.6s" x="740.09" y="80" width="15.57" height="10" fill="hsl(160 60% 60%)"/><rect class="grow" style="animation-delay:0.6599999999999999s" x="755.66" y="80" width="11.67" height="10" fill="#ff5a03"/><rect class="grow" style="animation-delay:0.72s" x="767.33" y="80" width="0.67" height="10" fill="hsl(161 60% 60%)"/></g>
-<g class="fade" style="animation-delay:0.5s"><circle cx="335" cy="112" r="5" fill="#e34c26"/>
-    <text class="txt" x="346" y="116">HTML</text><text class="dim" x="530" y="116" text-anchor="end">31.1%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#3572A5"/>
-    <text class="txt" x="566" y="116">Python</text><text class="dim" x="750" y="116" text-anchor="end">24.2%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#f1e05a"/>
-    <text class="txt" x="346" y="138">JavaScript</text><text class="dim" x="530" y="138" text-anchor="end">19.9%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#663399"/>
-    <text class="txt" x="566" y="138">CSS</text><text class="dim" x="750" y="138" text-anchor="end">9.8%</text></g><g class="fade" style="animation-delay:0.7s"><circle cx="335" cy="156" r="5" fill="#3178c6"/>
-    <text class="txt" x="346" y="160">TypeScript</text><text class="dim" x="530" y="160" text-anchor="end">8.7%</text></g><g class="fade" style="animation-delay:0.75s"><circle cx="555" cy="156" r="5" fill="hsl(160 60% 60%)"/>
-    <text class="txt" x="566" y="160">TeX</text><text class="dim" x="750" y="160" text-anchor="end">3.6%</text></g><g class="fade" style="animation-delay:0.8s"><circle cx="335" cy="178" r="5" fill="#ff5a03"/>
-    <text class="txt" x="346" y="182">Astro</text><text class="dim" x="530" y="182" text-anchor="end">2.7%</text></g><g class="fade" style="animation-delay:0.8500000000000001s"><circle cx="555" cy="178" r="5" fill="hsl(161 60% 60%)"/>
-    <text class="txt" x="566" y="182">Other</text><text class="dim" x="750" y="182" text-anchor="end">0.2%</text></g>
+<g clip-path="url(#bar)"><rect x="330" y="80" width="438" height="10" fill="#2f2a52"/><rect class="grow" style="animation-delay:0.3s" x="330.00" y="80" width="138.48" height="10" fill="#3572A5"/><rect class="grow" style="animation-delay:0.36s" x="468.48" y="80" width="109.17" height="10" fill="#e34c26"/><rect class="grow" style="animation-delay:0.42s" x="577.65" y="80" width="73.25" height="10" fill="#3178c6"/><rect class="grow" style="animation-delay:0.48s" x="650.90" y="80" width="62.52" height="10" fill="#f1e05a"/><rect class="grow" style="animation-delay:0.54s" x="713.43" y="80" width="32.18" height="10" fill="#663399"/><rect class="grow" style="animation-delay:0.6s" x="745.61" y="80" width="12.49" height="10" fill="hsl(160 60% 60%)"/><rect class="grow" style="animation-delay:0.6599999999999999s" x="758.10" y="80" width="9.36" height="10" fill="#ff5a03"/><rect class="grow" style="animation-delay:0.72s" x="767.46" y="80" width="0.54" height="10" fill="hsl(161 60% 60%)"/></g>
+<g class="fade" style="animation-delay:0.5s"><circle cx="335" cy="112" r="5" fill="#3572A5"/>
+    <text class="txt" x="346" y="116">Python</text><text class="dim" x="530" y="116" text-anchor="end">31.6%</text></g><g class="fade" style="animation-delay:0.55s"><circle cx="555" cy="112" r="5" fill="#e34c26"/>
+    <text class="txt" x="566" y="116">HTML</text><text class="dim" x="750" y="116" text-anchor="end">24.9%</text></g><g class="fade" style="animation-delay:0.6s"><circle cx="335" cy="134" r="5" fill="#3178c6"/>
+    <text class="txt" x="346" y="138">TypeScript</text><text class="dim" x="530" y="138" text-anchor="end">16.7%</text></g><g class="fade" style="animation-delay:0.65s"><circle cx="555" cy="134" r="5" fill="#f1e05a"/>
+    <text class="txt" x="566" y="138">JavaScript</text><text class="dim" x="750" y="138" text-anchor="end">14.3%</text></g><g class="fade" style="animation-delay:0.7s"><circle cx="335" cy="156" r="5" fill="#663399"/>
+    <text class="txt" x="346" y="160">CSS</text><text class="dim" x="530" y="160" text-anchor="end">7.3%</text></g><g class="fade" style="animation-delay:0.75s"><circle cx="555" cy="156" r="5" fill="hsl(160 60% 60%)"/>
+    <text class="txt" x="566" y="160">TeX</text><text class="dim" x="750" y="160" text-anchor="end">2.9%</text></g><g class="fade" style="animation-delay:0.8s"><circle cx="335" cy="178" r="5" fill="#ff5a03"/>
+    <text class="txt" x="346" y="182">Astro</text><text class="dim" x="530" y="182" text-anchor="end">2.1%</text></g><g class="fade" style="animation-delay:0.8500000000000001s"><circle cx="555" cy="178" r="5" fill="hsl(161 60% 60%)"/>
+    <text class="txt" x="566" y="182">Other</text><text class="dim" x="750" y="182" text-anchor="end">0.1%</text></g>
 <g transform="translate(0 56)">
 <line x1="24" y1="212" x2="776" y2="212" stroke="#2f2a52"/>
 <text class="h" x="32" y="234">Recently pushed</text>
@@ -66,8 +66,8 @@
     <circle cx="343" cy="256" r="4" fill="#ff5a03"/><text class="txt" x="352" y="260">Astro</text></g><g class="fade" style="animation-delay:0.98s"><rect x="404" y="244" width="73.2" height="24" rx="12" fill="#3572A5" fill-opacity=".14" stroke="#3572A5" stroke-opacity=".6"/>
     <circle cx="417" cy="256" r="4" fill="#3572A5"/><text class="txt" x="426" y="260">Python</text></g><g class="fade" style="animation-delay:1.06s"><rect x="485.2" y="244" width="102" height="24" rx="12" fill="#3178c6" fill-opacity=".14" stroke="#3178c6" stroke-opacity=".6"/>
     <circle cx="498.2" cy="256" r="4" fill="#3178c6"/><text class="txt" x="507.2" y="260">TypeScript</text></g><g class="fade" style="animation-delay:1.1400000000000001s"><rect x="595.2" y="244" width="102" height="24" rx="12" fill="#f1e05a" fill-opacity=".14" stroke="#f1e05a" stroke-opacity=".6"/>
-    <circle cx="608.2" cy="256" r="4" fill="#f1e05a"/><text class="txt" x="617.2" y="260">JavaScript</text></g><g class="fade" style="animation-delay:1.22s"><rect x="705.2" y="244" width="51.6" height="24" rx="12" fill="#663399" fill-opacity=".14" stroke="#663399" stroke-opacity=".6"/>
-    <circle cx="718.2" cy="256" r="4" fill="#663399"/><text class="txt" x="727.2" y="260">CSS</text></g>
+    <circle cx="608.2" cy="256" r="4" fill="#f1e05a"/><text class="txt" x="617.2" y="260">JavaScript</text></g><g class="fade" style="animation-delay:1.22s"><rect x="705.2" y="244" width="58.8" height="24" rx="12" fill="#e34c26" fill-opacity=".14" stroke="#e34c26" stroke-opacity=".6"/>
+    <circle cx="718.2" cy="256" r="4" fill="#e34c26"/><text class="txt" x="727.2" y="260">HTML</text></g>
 </g>
-<text class="dim" x="776" y="392" text-anchor="end" font-size="10">incl. private repos (numbers only) · updated 2026-11-03</text>
+<text class="dim" x="776" y="392" text-anchor="end" font-size="10">incl. private repos (numbers only) · updated 2026-11-04</text>
 </svg>
